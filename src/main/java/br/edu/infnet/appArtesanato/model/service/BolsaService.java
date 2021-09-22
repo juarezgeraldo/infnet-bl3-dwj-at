@@ -1,6 +1,5 @@
 package br.edu.infnet.appArtesanato.model.service;
 
-import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Bolsa;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.repository.BolsaRepository;
@@ -31,6 +30,10 @@ public class BolsaService {
     }
     public List<Bolsa> findAll(){
         return (List<Bolsa>) bolsaRepository.findAll();
+    }
+
+    public Integer obterQtd(){
+        return bolsaRepository.obterQtd();
     }
 
 }

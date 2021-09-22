@@ -14,7 +14,7 @@
 		<h4>Professor: Elberth Lins Costa de Moraes</h4>
 		<h4>Aluno: Juarez Geraldo da Silva Júnior</h4>
 
-		<p> <a href="https://github.com/juarezgeraldo/infnet-bl3-fdj-at.git">Código fonte (GitHub)</a> </p>
+		<p> <a href="https://github.com/juarezgeraldo/infnet-bl3-dwj-at.git">Código fonte (GitHub)</a> </p>
 	</div>
 
 </body>

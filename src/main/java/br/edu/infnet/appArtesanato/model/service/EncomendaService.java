@@ -1,6 +1,5 @@
 package br.edu.infnet.appArtesanato.model.service;
 
-import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Encomenda;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.repository.EncomendaRepository;
@@ -36,4 +35,9 @@ public class EncomendaService {
     public Encomenda findById(Long id) {
         return encomendaRepository.findById(id).orElse(null);
     }
+
+    public Integer obterQtd(){
+        return encomendaRepository.obterQtd();
+    }
+
 }

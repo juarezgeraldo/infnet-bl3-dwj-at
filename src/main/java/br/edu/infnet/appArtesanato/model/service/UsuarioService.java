@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -59,4 +58,9 @@ public class UsuarioService {
     public List<Usuario> findAll(){
         return (List<Usuario>) usuarioRepository.findAll();
     }
+
+    public Integer obterQtd(){
+        return usuarioRepository.obterQtd();
+    }
+
 }

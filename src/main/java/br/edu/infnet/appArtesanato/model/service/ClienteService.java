@@ -1,6 +1,5 @@
 package br.edu.infnet.appArtesanato.model.service;
 
-import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Cliente;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.repository.ClienteRepository;
@@ -36,4 +35,9 @@ public class ClienteService {
     public List<Cliente> findAll(){
         return (List<Cliente>) clienteRepository.findAll();
     }
+
+    public Integer obterQtd(){
+        return clienteRepository.obterQtd();
+    }
+
 }

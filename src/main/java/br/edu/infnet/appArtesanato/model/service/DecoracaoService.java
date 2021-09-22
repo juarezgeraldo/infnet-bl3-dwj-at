@@ -1,6 +1,5 @@
 package br.edu.infnet.appArtesanato.model.service;
 
-import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Decoracao;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.repository.DecoracaoRepository;
@@ -32,6 +31,10 @@ public class DecoracaoService {
     }
     public List<Decoracao> findAll(){
         return (List<Decoracao>) decoracaoRepository.findAll();
+    }
+
+    public Integer obterQtd(){
+        return decoracaoRepository.obterQtd();
     }
 
 }

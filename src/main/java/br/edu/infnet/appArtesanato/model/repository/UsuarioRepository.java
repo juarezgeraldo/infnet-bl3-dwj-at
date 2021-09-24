@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
@@ -20,6 +22,9 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
     @Query("from Usuario u where u.email = :email and u.senha = :senha")
     public Usuario autenticacao(String email, String senha);
+
+    @Query("from Usuario u order by u.nome")
+    public List<Usuario> obterLista();
 
     boolean existsByEmail(String email);
 

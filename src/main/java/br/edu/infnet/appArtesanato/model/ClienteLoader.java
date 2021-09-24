@@ -33,16 +33,11 @@ public class ClienteLoader implements ApplicationRunner {
         Endereco endereco = new Endereco();
         endereco = enderecoService.obterCep("31741455");
 
-//        endereco.setCep("31741455");
-//        endereco.setBairro("Heliópolis");
-//        endereco.setLocalidade("Belo Horizonte");
-//        endereco.setLogradouro("Rua José Antenor");
-//        endereco.setUf("MG");
         endereco.setComplemento("apto. 401");
         endereco.setNumero(237);
 
         Cliente cliente = new Cliente();
-        cliente.setNome("Nome do primeiro cliente");
+        cliente.setNome("Primeiro Cliente");
         cliente.setEmail("email_cliente@mail");
         cliente.setTelefone("(31) 99991-0001");
         cliente.setEndereco(endereco);

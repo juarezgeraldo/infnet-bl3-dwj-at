@@ -1,5 +1,6 @@
 package br.edu.infnet.appArtesanato.model.repository;
 
+import br.edu.infnet.appArtesanato.model.domain.Cliente;
 import br.edu.infnet.appArtesanato.model.domain.Encomenda;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -15,4 +16,6 @@ public interface EncomendaRepository extends CrudRepository<Encomenda, Long> {
     @Query("select count(e) from Encomenda e")
     public Integer obterQtd();
 
+    @Query("select count(e) from Encomenda e where e.cliente = :cliente")
+    public Integer qtdEncomendas(Cliente cliente);
 }

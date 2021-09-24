@@ -4,6 +4,7 @@ import br.edu.infnet.appArtesanato.model.domain.Cliente;
 import br.edu.infnet.appArtesanato.model.domain.Endereco;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.service.ClienteService;
+import br.edu.infnet.appArtesanato.model.service.EncomendaService;
 import br.edu.infnet.appArtesanato.model.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ public class ClienteController {
 
     @Autowired
     private EnderecoService enderecoService;
+
+    @Autowired
+    private EncomendaService encomendaService;
 
     @GetMapping("/cliente/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
@@ -67,12 +71,17 @@ public class ClienteController {
         Cliente cliente = clienteService.findById(id);
         String mensagem = null;
         String idMsg = null;
-        try {
-            clienteService.excluir(id);
-            mensagem = "O cliente " + cliente.getNome() + " foi excluído com sucesso!!!";
-            idMsg = "sucesso";
-        } catch (Exception e) {
-            mensagem = "Não foi possível realizar a exclusão do cliente " + cliente.getNome() + ". Erro retornado: " + e.getMessage();
+        if (!encomendaService.existEncomenda(cliente)) {
+            try {
+                clienteService.excluir(id);
+                mensagem = "O cliente " + cliente.getNome() + " foi excluído com sucesso!!!";
+                idMsg = "sucesso";
+            } catch (Exception e) {
+                mensagem = "Não foi possível realizar a exclusão do cliente " + cliente.getNome() + ". Erro retornado: " + e.getMessage();
+                idMsg = "erro";
+            }
+        }else {
+            mensagem = "Não foi possível realizar a exclusão do cliente " + cliente.getNome() + ". Há encomendas associadas a ele. ";
             idMsg = "erro";
         }
         model.addAttribute("msg", mensagem);

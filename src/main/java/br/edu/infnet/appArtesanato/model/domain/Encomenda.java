@@ -27,7 +27,6 @@ public class Encomenda {
     public Encomenda(){
         data = LocalDate.now();
     }
-//this.data = LocalDateTime.now();
 
     public Encomenda(LocalDate data, boolean feira, String observacao) {
         this.data = data;

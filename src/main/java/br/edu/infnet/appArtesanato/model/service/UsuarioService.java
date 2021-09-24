@@ -16,7 +16,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     public List<UsuarioDTO> obterLista() {
-        List<Usuario> usuarioList = (List<Usuario>) usuarioRepository.findAll();
+        List<Usuario> usuarioList = (List<Usuario>) usuarioRepository.obterLista();
         List<UsuarioDTO> usuarioDTOList =  new ArrayList<>();
 
         for (Usuario usuario : usuarioList) {
@@ -56,7 +56,7 @@ public class UsuarioService {
     }
 
     public List<Usuario> findAll(){
-        return (List<Usuario>) usuarioRepository.findAll();
+        return (List<Usuario>) usuarioRepository.obterLista();
     }
 
     public Integer obterQtd(){

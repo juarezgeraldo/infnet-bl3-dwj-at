@@ -19,7 +19,7 @@ public class Cliente {
     @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
     @JoinColumn(name = "idEndereco")
     private Endereco endereco;
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany
     @JoinColumn(name = "cliente_id")
     private List<Encomenda> encomendaList;
 

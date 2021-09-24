@@ -69,7 +69,7 @@ public class UsuarioController {
             model.addAttribute("usuario", usuario);
             return telaLista(model, usuarioUser, usuario);
         } else {
-            String mensagem = "Já existe o e-mail " + " registrado para outro usuário.";
+            String mensagem = "Já existe o e-mail " + usuario.getEmail() + " registrado para outro usuário.";
             model.addAttribute("msg", mensagem);
             String idMsg = "erro";
             model.addAttribute("idMsg", idMsg);
@@ -79,14 +79,15 @@ public class UsuarioController {
 
     @GetMapping("/usuario/{id}/excluir")
     public String excluir(Model model, @SessionAttribute("user") Usuario usuarioUser, @PathVariable Long id) {
+        Usuario usuario = usuarioService.findById(id);
         if (usuarioUser.getId() != id) {
             usuarioService.excluir(id);
-            String mensagem = "O usuário " + id + " foi excluído com sucesso!!!";
+            String mensagem = "O usuário " + usuario.getNome() + " foi excluído com sucesso!!!";
             model.addAttribute("msg", mensagem);
             String idMsg = "sucesso";
             model.addAttribute("idMsg", idMsg);
         } else {
-            String mensagem = "O próprio usuário " + usuarioUser.getNome() + " NÃO pode se excluir!!!";
+            String mensagem = "O próprio usuário " + usuario.getNome() + " NÃO pode se excluir!!!";
             model.addAttribute("msg", mensagem);
             String idMsg = "erro";
             model.addAttribute("idMsg", idMsg);
